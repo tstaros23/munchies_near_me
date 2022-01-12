@@ -7,19 +7,16 @@ require 'rails_helper'
                name: "Lanning's Downtown Grill",
                rating: 4.0,
                display_phone: "(620) 251-1618",
-               city: "Coffeyville",
-               state: "KS",
-               distance: 33
+               location: {address1: "Coffeyville, KS"}
             }
-
-    restaurant = Yelp.new(attr)
+    distance = 33
+    restaurant = Yelp.new(attr, distance)
 
     expect(restaurant).to be_a(Yelp)
     expect(restaurant.name).to eq("Lanning's Downtown Grill")
     expect(restaurant.rating).to eq(4.0)
-    expect(restaurant.display_phone).to eq("(620) 251-1618")
-    expect(restaurant.city).to eq("Coffeyville")
-    expect(restaurant.state).to eq("KS")
+    expect(restaurant.phone_number).to eq("(620) 251-1618")
+    expect(restaurant.address).to eq("Coffeyville, KS")
     expect(restaurant.distance).to eq(33)
    end
  end
